@@ -1,0 +1,24 @@
+services:
+  test-e2e:
+    build: test-e2e
+    tty: true
+    stdin_open: true
+    container_name: test-e2e
+    environment:
+      - TRANSCENDENCE_HOST=frontend
+    networks:
+      frontend-network:
+        ipv4_address: 172.20.0.5
+
+# networks:
+#   frontend-network:
+#     external: true
+
+networks:
+  frontend-network:
+    name: frontend-network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+    external: false

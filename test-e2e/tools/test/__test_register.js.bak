@@ -1,0 +1,60 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+const request = require('supertest');
+const assert = require('assert');
+const WebSocket = require('ws');
+
+const serverUrl = 'https://frontend';
+
+describe('User Registration and WebSocket Test', function() {
+    before(async function() {
+        // テスト前にユーザーが存在している場合は削除
+        try {
+            await request(serverUrl)
+                .delete('/api/test/delete/testuser100/')
+                .expect(204);
+        } catch (err) {
+            // ユーザーが存在しない場合のエラーを無視
+        }
+    });
+
+    // it('should register and login users and test WebSocket communication', async function() {
+    //     // ユーザー登録
+    //     let res = await request(serverUrl)
+    //         .post('/api/players/register/')
+    //         .send({ username: 'testuser100', password: 'Testp@ssword1!' })
+    //         .expect(201);
+
+    //     // ユーザーログイン
+    //     res = await request(serverUrl)
+    //         .post('/api/players/login/')
+    //         .send({ username: 'testuser100', password: 'Testp@ssword1!' })
+    //         .expect(200);
+
+    //     const token = res.body.token;
+
+        // // WebSocket接続
+        // const ws = new WebSocket(`wss://frontend/ws/lounge/`, {
+        //     headers: {
+        //         'Authorization': `Bearer ${token}`
+        //     }
+        // });
+
+        // // WebSocketテスト
+        // ws.on('open', () => {
+        //     ws.send(JSON.stringify({ message: 'Hello WebSocket' }));
+        // });
+
+        // ws.on('message', (message) => {
+        //     assert.strictEqual(message, 'Hello WebSocket');
+        //     ws.close();
+        // });
+    //});
+
+    // after(async function() {
+    //     // テスト後にユーザーを削除
+    //     await request(serverUrl)
+    //         .delete('/api/test/delete/testuser1/')
+    //         .expect(204);
+    // });
+});

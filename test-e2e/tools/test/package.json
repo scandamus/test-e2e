@@ -1,0 +1,21 @@
+{
+  "name": "e2e-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:e2e": "mocha test_multiple_users.js"
+  },
+  "dependencies": {
+    "supertest": "^6.1.3",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "ws": "^8.0.0",
+    "node-fetch": "^3.0.0",
+    "prompt": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=17.0.0"
+  },
+  "type": "module"
+}
