@@ -2,7 +2,7 @@
 
 テスト用のコンテナです。本体のコンテナ群とは分けました。
 このテストに対応する最小限の変更を https://github.com/scandamus/ft_transcendence/pull/143 に上げました。
-先に本体のdocker-compose upをした後でこちらのdocker-compose up --buildしてください。
+先に本体のdocker-compose -f docker-compose_test.yml up --buildをした後でこちらのdocker-compose up --buildしてください。
 
 ### テストスクリプト
 Mochaフレームワークを使っています。
